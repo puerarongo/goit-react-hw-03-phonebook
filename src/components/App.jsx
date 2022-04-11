@@ -18,7 +18,9 @@ class App extends Component {
   // ! Life Cycle (added)
   componentDidMount() {
     const localContacts = JSON.parse(localStorage.getItem("contacts"));
-    this.setState({contacts: localContacts});
+    if (localContacts) {
+      this.setState({ contacts: localContacts });
+    }
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -71,7 +73,7 @@ class App extends Component {
   render() {
     const { filter } = this.state;
     ///const filtered = contacts.filter(elem => { return elem.name.toLowerCase().includes(filter.toLowerCase()) });
-    const filtred = this.filterFunc()
+    const filtred = this.filterFunc();
     return (
       <div>
         <h1>Phonebook</h1>
