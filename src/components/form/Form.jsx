@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import styles from "./Form.module.css"; 
 
 class Form extends Component {
@@ -13,15 +14,13 @@ class Form extends Component {
     const { name, value } = e.currentTarget
     this.setState({ [name]: value })
     };
-
-    reset = () => {this.setState({name: "", number: ""}) };
-
+    
 
     submitHandler = (e) => {
     e.preventDefault();
 
     this.props.submit(this.state);
-    this.reset();
+    this.setState({name: "", number: ""});
   };
 
 
@@ -60,6 +59,10 @@ class Form extends Component {
         </div>
         );
     };
+};
+
+Form.propTypes = {
+    submit: PropTypes.func.isRequired
 };
 
 export default Form;

@@ -32,7 +32,6 @@ class App extends Component {
 
 
   //todo Function
-
   formSubmitHandler = (stateData) => {
     const nameArr = this.state.contacts.map(elem => elem.name)
     if (nameArr.includes(stateData.name)) {
@@ -67,13 +66,12 @@ class App extends Component {
     );
   };
 
-
   
   //todo Render()
   render() {
     const { filter } = this.state;
-    ///const filtered = contacts.filter(elem => { return elem.name.toLowerCase().includes(filter.toLowerCase()) });
     const filtred = this.filterFunc();
+
     return (
       <div>
         <h1>Phonebook</h1>
